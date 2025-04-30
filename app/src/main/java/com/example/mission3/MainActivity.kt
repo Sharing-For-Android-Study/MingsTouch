@@ -26,20 +26,20 @@ class MainActivity : AppCompatActivity() {
         val textView = findViewById<TextView>(R.id.main_player_cl)
         textView.text = 'dd'
 
-        // MiniPlayerFragment가 클릭되면 이 Launcher로 SongActivity 실행
         binding.mainPlayerLayout.setOnClickListener {
             val intent = Intent(this, SongActivity::class.java)
             intent.putExtra("title", "LILAC")
             intent.putExtra("singer", "아이유(IU)")
             resultLauncher.launch(intent)
         }*/
+        // MiniPlayerFragment가 클릭되면 이 Launcher로 SongActivity 실행
         binding.mainPlayerCl.setOnClickListener {
             val intent = Intent(this, SongActivity::class.java)
             intent.putExtra("title", song.title)
             intent.putExtra("singer", song.singer)
-            intent.putExtra("singer", song.second)
-            intent.putExtra("singer", song.playTime)
-            intent.putExtra("singer", song.isPlaying)
+            intent.putExtra("second", song.second)
+            intent.putExtra("playTime", song.playTime)
+            intent.putExtra("isPlaying", song.isPlaying)
 
             startActivity(intent) // SongActivity로 이동
         }

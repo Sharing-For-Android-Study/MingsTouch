@@ -9,7 +9,7 @@ import com.example.mission3.databinding.ActivitySongBinding
 class SongActivity : AppCompatActivity() {
     // 뷰 바인딩 객체 선언
     lateinit var binding: ActivitySongBinding // import가 아니라 xml 에 activitySong 없어서
-
+    lateinit var song: Song
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 바인딩 초기화
@@ -30,7 +30,7 @@ class SongActivity : AppCompatActivity() {
         binding.songTitleTv.text = title
         binding.songSingerTv.text = singer
 */
-        // 전달받은 데이터가 존재하는지 먼저 확인
+        // 전달받은 데이터가 존재하는지 먼저 확인 -> null 반환 방지
         if(intent.hasExtra("title")&&intent.hasExtra("singer")){
             binding.songMusicTitleTv.text = intent.getStringExtra("title")!!
             binding.songSingerNameTv.text = intent.getStringExtra("singer")!!
@@ -47,6 +47,17 @@ class SongActivity : AppCompatActivity() {
         }
     }
 
+    private fun initSong() {
+        if(intent.hasExtra("title")&&intent.hasExtra("singer")){
+            song = Song(
+                intent.getStringExtra("title")!!,
+                intent.getStringExtra("singer")!!,
+                intent.getIntExtra("second", 0),
+                intent.getIntExtra("playTime", 0),
+                intent.getBooleanExtra("isPlaying", false)
+            )
+        }
+    }
     private fun initBottomNavigation() {
         TODO("Not yet implemented")
     }
