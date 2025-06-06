@@ -215,13 +215,13 @@
             android:id="@+id/song_miniplayer_iv"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/btn_miniplay_pause" />
+            android:src="@drawable/btn_miniplayer_play" />
 
         <ImageView
             android:id="@+id/song_pause_iv"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/btn_miniplayer_play"
+            android:src="@drawable/btn_miniplay_pause"
             android:visibility="gone" />
 
         <ImageView

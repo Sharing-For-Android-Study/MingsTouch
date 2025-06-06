@@ -6,5 +6,6 @@ data class Song(
     val singer : String = "",
     var second : Int = 0, // 여기부터 변경 가능
     var playTime: Int = 0,
-    var isPlaying: Boolean = false
+    var isPlaying: Boolean = false,
+    var music: String = "" // 어떤 노래인지
 )
